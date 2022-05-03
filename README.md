@@ -1,75 +1,58 @@
-# Data analysis
-- Document here the project: mytoolbox
-- Description: Project Description
-- Data Source:
-- Type of analysis:
+# eCommerce Data Analysis - Profit Improvement Suggestion
 
-Please document the project the better you can.
+# Introduction
 
-# Startup the project
+- Please check a jupyter book or PDF file under notebook for data analysis.
 
-The initial setup.
+## Background
 
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
+- This data analysis project was introduced during the coding bootcamp. 
+- It was a half-guided module and the problem and the preconditions are presented. 
+- The insights, the visualizations and the suggestions are my original.
 
-Unittest test:
-```bash
-make clean install test
-```
+## Dataset
 
-Check for mytoolbox in gitlab.com/{group}.
-If your project is not set please add it:
+- Brazilian E-Commerce Public Dataset by Olist  
 
-- Create a new project on `gitlab.com/{group}/mytoolbox`
-- Then populate it:
+- kaggle.com/olistbr/brazilian-ecommerce
 
-```bash
-##   e.g. if group is "{group}" and project_name is "mytoolbox"
-git remote add origin git@github.com:{group}/mytoolbox.git
-git push -u origin master
-git push -u origin --tags
-```
+- Olist offers Logistic and Inventory Management Service to sellers
 
-Functionnal test with a script:
+- Information about ~100k orders made between 2016 and 2018
 
-```bash
-cd
-mkdir tmp
-cd tmp
-mytoolbox-run
-```
+- 8 csv files (orders, cutomers, reviews, sellers, products...etc)
 
-# Install
+## Problem statement
 
-Go to `https://github.com/{group}/mytoolbox` to see the project, manage issues,
-setup you ssh public key, ...
+**How should Olist improve it's profit margin**, given that the revenue and the cost are calculated as the following condition:
 
-Create a python3 virtualenv and activate it:
+**Revenue**
 
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
-```
+1. Olist takes a 10% cut on the product price (excl. freight) of each order delivered.
+2. Olist charges 80 BRL by month per seller.
 
-Clone the project and install it:
+**Cost**
 
-```bash
-git clone git@github.com:{group}/mytoolbox.git
-cd mytoolbox
-pip install -r requirements.txt
-make clean install test                # install and test
-```
-Functionnal test with a script:
+1. Estimated cost occured by bad review per order
 
-```bash
-cd
-mkdir tmp
-cd tmp
-mytoolbox-run
-```
-# ecommerce-data-analysis
+|review_score|	cost (BRL)|
+|:---:|:---:|
+|1 star|100|
+|2 stars|50|
+|3 stars|40|
+|4 stars|0|
+|5 stars|0|
+
+2. IT costss
+
+Olist's IT costs are estimated to be proportional to *the square-root of the total cumlated number of orders approved*.
+
+The IT department also told you that since the birth of the marketplace, cumulated IT costs have amounted to 500,000 BRL.
+
+## Suggestion
+
+After the data analysis on seller data, I would give the following 2 suggestions to improve the profits by at least 10 %.
+
+**1. By removing the worst 15 sellers (0.5 % of the sellers) who make negative profits, Olist improves the profits by 10 %**
+
+**2. By charging 10 % of the review cost directly to the sellers, Olist improves the profits by 13.9 %**
