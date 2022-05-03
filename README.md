@@ -2,6 +2,8 @@
 
 # Introduction
 
+- Please check a jupyter book or PDF file under notebook for data analysis.
+
 ## Background
 
 - This data analysis project was introduced during the coding bootcamp. 
